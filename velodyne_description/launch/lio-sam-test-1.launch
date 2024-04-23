@@ -16,7 +16,7 @@
     <arg name="headless" value="$(arg headless)"/>
     <arg name="debug" value="$(arg debug)"/>
     <arg name="verbose" value="$(arg verbose)"/>
-    <arg name="world_name" value="$(arg world_name)"/>
+    <arg name="world_name" value="$(find aws_robomaker_small_warehouse_world)/worlds/no_roof_small_warehouse.world"/>
   </include>
 
   <!-- Spawn the example robot -->

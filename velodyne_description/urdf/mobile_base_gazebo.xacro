@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <gazebo reference="base_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="right_wheel_link">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="left_wheel_link">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="caster_wheel_link">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo>
+        <!-- PLUGINS COME FROM https://github.com/ros-simulation/gazebo_ros_pkgs/blob/ros2/gazebo_plugins/include/gazebo_plugins/ -->
+        <plugin name='tricycle_drive_controller' filename='libgazebo_ros_tricycle_drive.so'>
+
+            <!-- wheels -->
+            <!-- <steering_joint>base_steering_joint</steering_joint>
+            <actuated_wheel_joint>base_steering_caster_wheel_joint</actuated_wheel_joint>
+            <encoder_wheel_left_joint>base_left_wheel_joint</encoder_wheel_left_joint>
+            <encoder_wheel_right_joint>base_right_wheel_joint</encoder_wheel_right_joint> -->
+            <steeringJoint>base_steering_joint</steeringJoint>
+            <actuatedWheelJoint>base_steering_caster_wheel_joint</actuatedWheelJoint>
+            <encoderWheelLeftJoint>base_left_wheel_joint</encoderWheelLeftJoint>
+            <encoderWheelRightJoint>base_right_wheel_joint</encoderWheelRightJoint>
+
+            <!-- kinematics -->
+            <!-- <wheel_separation>0.45</wheel_separation>
+            <encoder_wheel_diameter>0.2</encoder_wheel_diameter>
+            <actuated_wheel_diameter>0.1</actuated_wheel_diameter> -->
+            <wheelSeparation>0.45</wheelSeparation>
+            <encoderWheelDiameter>0.2</encoderWheelDiameter>
+            <actuatedWheelDiameter>0.1</actuatedWheelDiameter>
+
+            <!-- limits -->
+            <!-- <max_wheel_torque>20</max_wheel_torque>
+            <max_wheel_acceleration>5.0</max_wheel_acceleration>
+            <max_steering_speed>1.0</max_steering_speed> -->
+            <maxWheelTorque>20</maxWheelTorque>
+            <maxWheelAcceleration>5.0</maxWheelAcceleration>
+            <maxSteeringSpeed>1.0</maxSteeringSpeed>
+
+            <!-- output -->
+            <!-- <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf>
+            <publish_wheel_joint_state>true</publish_wheel_joint_state>
+
+            <odometry_frame>odom</odometry_frame>
+            <odometry_topic>odom</odometry_topic>
+            <robot_base_frame>base_footprint</robot_base_frame> -->
+            <publishOdom>true</publishOdom>
+            <publishOdomTF>true</publishOdomTF>
+            <publishWheelTF>true</publishWheelTF>
+            <publishWheelJointState>true</publishWheelJointState>
+
+            <odometryFrame>odom</odometryFrame>
+            <odometryTopic>odom</odometryTopic>
+            <robotBaseFrame>base_footprint</robotBaseFrame>
+
+        </plugin>
+    </gazebo>
+
+</robot>
